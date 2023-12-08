@@ -6,11 +6,11 @@
     --color-dark-100: #312d37;
     --color-dark-900: #000;
 
-    --color-green-50: #279112;
-    --color-green-100: #31ac19;
-    --color-green-200: #33ff00;
+    --color-blue-50: #075d85;
+    --color-blue-100: #0b6d9b;
+    --color-blue-200: #27b7fa;
 
-    --color-gradient: linear-gradient(90deg, var(--color-green-50), var(--color-green-100), var(--color-green-200));
+    --color-gradient: linear-gradient(90deg, var(--color-blue-50), var(--color-blue-100), var(--color-blue-200));
 }
 
 * {
@@ -38,6 +38,7 @@
     gap: 30px;
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
     height: fit-content;
+    animation: dark-to-light-background 0.3s ease-in-out;
 }
 
 #form_header {
@@ -55,7 +56,7 @@
     position: absolute;
     content: '';
     width: 40%;
-    background-color: var(--color-green-50);
+    background-color: var(--color-blue-50);
     height: 3px;
     bottom: 10px;
     border-radius: 5px;
@@ -98,7 +99,7 @@
     gap: 15px;
     padding: 3px;
     cursor: text;
-    border-bottom: 1px solid var(--color-green-50);
+    border-bottom: 1px solid var(--color-blue-50);
 }
 
 .input-field i {
@@ -125,7 +126,7 @@
 }
 
 #forgot_password a:hover {
-    color: var(--color-green-50);
+    color: var(--color-blue-50);
 }
 
 #login_button {
@@ -141,4 +142,38 @@
 
 #login_button:hover {
     transform: scale(1.05);
+}
+
+.dark#login_form {
+    color: var(--color-light-50);
+    background-color: var(--color-dark-100);
+    animation: light-to-dark-background 0.3s ease-in-out;
+}
+
+.dark#login_form .input-field input,
+.dark#login_form .input-field i {
+    color: var(--color-light-50);
+}
+
+.dark#container,
+.dark#login_button {
+    background: linear-gradient(90deg, #0e0446, #12055a, #1f04bd);
+}
+
+@keyframes dark-to-light-background {
+    0% {
+        background-color:var(--color-dark-100);
+    }
+    100.0% {
+        background-color:var(--color-light-50);
+    }
+}
+
+@keyframes light-to-dark-background {
+    0% {
+        background-color:var(--color-light-50);
+    }
+    100.0% {
+        background-color:var(--color-dark-100); 
+    }
 }
